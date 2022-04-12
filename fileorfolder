@@ -1,28 +1,51 @@
-$array = Import-Csv -Path C:\Users\Administrator\Documents\Files
 
-foreach($item in $array){
+"are you sure you wanna run this code?"
 
-  if($item.FILEORFOLDER -eq 'ISFolder'){
-      "Are you sure?"
-      $answ = read-host   
-      if($answ -eq 'y'){
+$ans= read-host
 
-          New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'Directory'
+if($ans -eq 'y' -or 'yes'){
 
-      }
-      elseif($answ -eq 'n'){
+    'YOOOOOOOOOOOOOOOOOOOOOOOOOOOO THERE YA GOOOOOOOOOOOOOOOOOO'
+       $array = Import-Csv -Path C:\Users\Administrator\Documents\Files\new.csv
+        foreach($item in $array){
 
-         'You said no' 
+          if($item.FILEORFOLDER -eq 'ISFolder'){
+              "Are you sure?"
+              $answ = read-host   
+              if($answ -eq 'y'){
 
-      }
-  }
-  elseif($item.FILEORFOLDER -eq 'ISFile'){
-  
-    New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'File'
-    
-  }
+                  New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'Directory'
+
+              }
+              elseif($answ -eq 'n'){
+
+                'You said no' 
+
+              }
+          }
+        }
+          elseif($item.FILEORFOLDER -eq 'ISFile'){
+          
+            New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'File'
+            
+          }
 
 }
+
+
+else{
+
+  'K LIKE, I GET IT'
+
+}
+
+
+
+
+
+
+
+
 
 
 #blablabla lots of changes
