@@ -1,0 +1,23 @@
+$array = Import-Csv -Path C:\Files\new.csv
+
+foreach($item in $array){
+
+  if($item.FILEORFOLDER -eq 'ISFolder'){
+    
+    New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'Directory'
+  
+  }
+  elseif($item.FILEORFOLDER -eq 'ISFile'){
+  
+    New-Item -Path $item.DRIVE -Name $item.NAAM -ItemType 'File'
+    
+  }
+
+}
+
+------------------------------------------------
+THE FILE
+NAAM,DRIVE,FILEORFOLDER
+Nice,C:\,ISFolder
+Nicetoo,C:\,ISFile
+Nicest,C:\,ISFolder
